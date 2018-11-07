@@ -20,6 +20,7 @@ int main(void){
     // Initialise Systems
     if(!init()){
         std::cerr << "Could not initialise!" << std::endl;
+        return 1;
     }
 
     // Test Loop
