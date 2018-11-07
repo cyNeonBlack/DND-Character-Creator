@@ -50,6 +50,18 @@ public:
 	let SORCERER = 9;
 	let WARLOCK = 10;
 	let WIZARD = 11;
+
+	// Proficiencies
+	let ARMOR = 0;
+	let WEAPONS = 1
+	let TOOLS = 2;
+
+	// Proficiency Bonus'
+	let[] PROFBONUSES = {
+		0, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 6, 6
+	};
+	// PROBONUS[<level>] returns bonus at given level.
+
 }
 
 /*
