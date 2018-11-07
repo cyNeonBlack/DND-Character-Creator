@@ -29,6 +29,7 @@ int main(void){
 
         if(input.compare("q") == 0){
             quit = true;
+            break;
         }
 
         std::cout << Rogue.rollHitDie() << std::endl;
