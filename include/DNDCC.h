@@ -1,67 +1,153 @@
-#define let static const int
+#include <iostream>
+#include <stdlib.h>
+#include <string>
+#include <vector>
 
-class DNDCC {
-
-public:
-
-	// Attributes
-	let STRENGTH = 0;
-	let DEXTETRITY = 1;
-	let CONSTITUTION = 2;
-	let INTELLIGENCE = 3;
-	let WISDOM = 4;
-	let CHARISMA = 5;
-
-	// Races
-	let DRAGONBORN = 0;
-	let DWARF = 1;
-	let ELF = 2;
-	let GNOME = 3;
-	let HALF_ELF = 4;
-	let HALF_ORC = 5;
-	let HALFLING = 6;
-	let HUMAN = 7;
-	let TIEFLING = 8;
-
-	// Subraces
-	let HILL_DWARF = 0;
-	let MOUNTAIN_DWARF = 1;
-
-	let HIGH_ELF = 0;
-	let WOOD_ELF = 1;
-	let DARK_ELF = 2;
-
-	let FOREST_GNOME = 0;
-	let ROCK_GNOME = 1;
-
-	let LIGHTFOOT_HALFLING = 0;
-	let STOUT_HALFLING = 1;
-
-	// Classes
-	let BARBARIAN = 0;
-	let BARD = 1;
-	let CLERIC = 2;
-	let DRUID = 3;
-	let FIGHTER = 4;
-	let MONK = 5;
-	let PALADIN = 6;
-	let RANGER = 7;
-	let ROGUE = 8;
-	let SORCERER = 9;
-	let WARLOCK = 10;
-	let WIZARD = 11;
-
-	// Proficiencies
-	let ARMOR = 0;
-	let WEAPONS = 1
-	let TOOLS = 2;
-
-	// Proficiency Bonus'
-	let[] PROFBONUSES = {
-		0, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 6, 6
-	};
-	// PROBONUS[<level>] returns bonus at given level.
-
-}
 
 /*
+* Classes::<NAME> returns 0-11 based on selected class.
+* Example use: 
+* int class = Classes::BARBARIAN;
+*/
+class Classes {
+public:
+	enum x { 
+		BARBARIAN,
+		BARD,
+		CLERIC,
+		DRUID,
+		FIGHTER,
+		MONK,
+		PALADIN,
+		RANGER,
+		ROGUE,
+		SORCERER,
+		WARLOCK,
+		WIZARD
+	};
+};
+
+/*
+* Attributes::<ATTRIBUTE> returns 0-6 based on selected Attribute.
+* Example use:
+* stats[Attributes::STRENGTH] = 15;
+*/
+class Attributes {
+public:
+	enum x {
+		STRENGTH,
+		DEXTERITY,
+		CONSTITUTION,
+		INTELLIGENCE,
+		WISDOM,
+		CHARISMA
+	};
+};
+
+/*
+* Races::<RACE> returns 0-8 based on selected race.
+* Example uses:
+* race = Races::ELF;
+* if (this.race == Races::GNOME) { ... }
+*/
+class Races {
+public:
+	enum x {
+		DRAGONBORN,
+		DWARF,
+		ELF,
+		GNOME,
+		HALF_ELF,
+		HALF_ORC,
+		HALFLING,
+		HUMAN,
+		TIEFLING
+	};
+};
+
+/*
+* SubRaces::<SUBRACE> returns 0-2 based on selected enum and type.
+* example uses:
+* if (this.race == Races::ELF && this.subRace == SubRaces::HIGH_ELF) { ... }
+*/
+class SubRaces {
+public:
+	enum Dwarves {
+		HILL_DWARF,
+		MOUNTAIN_DWARF
+	};
+
+	enum Elves {
+		HIGH_ELF,
+		WOOD_ELF,
+		DARK_ELF
+	};
+
+	enum Gnomes {
+		FOREST_GNOME,
+		ROCK_GNOME
+	};
+
+	enum Halflings {
+		LIGHTFOOT_HALFLING,
+		STOUT_HALFLING
+	};
+};
+
+/*
+* Proficiencies::<PROFICIENCY> returns 0-4 based on selected prof.
+* PROFBONUSES[<LEVEL>] returns the proficiency bonus for that level.
+* Example uses:
+* this.proficiencies[Proficiences::ARMOUR].push("Heavy Armour");
+* if (proficiencies[Attributes::STRENGTH][Proficiencies::ATHLETICS]) { ... }
+* this.profBonus = Proficiencies::PROFBONUSES[this.level];
+*/
+class Proficiencies {
+public:
+	enum BasicProfs {
+		ARMOUR,
+		WEAPONS,
+		TOOLS
+	};
+
+	enum StrProfs {
+		ATHLETICS
+	};
+
+	enum DexProfs {
+		ACROBATICS,
+		SLEIGHT_OF_HAND,
+		STEALTH
+	};
+
+	enum ConProfs {
+		// lol
+	};
+
+	enum IntProfs {
+		ARCANA,
+		HISTORY,
+		INVESITGATION,
+		NATURE,
+		RELIGION
+	};
+
+	enum WisProfs {
+		ANIMAL_HANDLING,
+		INSIGHT,
+		MEDICINE,
+		PERCEPTION,
+		SURVIVAL
+	};
+
+	enum ChaProfs {
+		DECEPTION,
+		INTIMIDATION,
+		PERFORMANCE,
+		PERSUASION
+	};
+
+	static constexpr int PROFBONUSES [21] = {
+		0, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 6, 6
+	};
+};
