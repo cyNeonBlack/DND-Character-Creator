@@ -1,3 +1,5 @@
+#ifndef DNDCLASS_H_
+#define DNDCLASS_H_
 #include "DNDCC.h"
 
 class DnDClass{
@@ -17,3 +19,5 @@ public:
     int rollHitDie();                          // Returns Roll of Single Hit Die
     int getInitHP() const;                     // Returns HP at Level 1
 };
+
+#endif

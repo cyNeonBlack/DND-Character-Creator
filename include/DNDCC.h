@@ -1,3 +1,6 @@
+#ifndef DNDCC_H_
+#define DNDCC_H_
+
 #include <iostream>
 #include <stdlib.h>
 #include <string>
@@ -151,3 +154,5 @@ public:
 		0, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 6, 6
 	};
 };
+
+#endif
